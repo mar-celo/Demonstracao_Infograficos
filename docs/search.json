@@ -1,0 +1,541 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "O R Markdown é um pacote para criação de relatórios automatizados utilizando as linguagens de programação R, Python e de marcação Markdown.\n\n\nLinguagens de marcação utilizam marcadores (símbolos, tags, funções) para formatar um arquivo de texto simples. Os exemplos mais famosos de linguagem de marcação são o HTML e LaTeX.\n\n\nA linguagem de marcação Markdown serve para construirmos e formatarmos diversos formatos de arquivos (PDF, HTML, Word, entre outros) a partir de um arquivo de texto com regras bem simples.\nO RMarkdown é uma extensão de Markdown que nos permite colocar código de R.\n\nReferência do quarto: https://quarto.org/docs/websites.\n\n\n\n\nPossibilita automatizar a criar produtos com o R e Python, através do pacote Reticulate Ushey, Allaire, e Tang (2023) que integra o R com Python.\nCom ele também é possível fazer a conexão com o SAS através da biblioteca SASPY\n\n\n\n\nSAS-PYTHON-R\n\n\nhttps://rstudio.github.io/reticulate/index.html https://bookdown.org/yihui/rmarkdown-cookbook/eng-python.html\n\nCom exceção das interpretações e conclusões, só precisamos montá-lo uma vez. A partir daí, com apenas um clique podemos:\n\nreplicar o relatório para diversas versões da base de dados (modificações, correções, processos periódicos);\nreplicar o relatório para diversas variáveis.\nCriar documentos reprodutíveis\nCriar diversos tipos de produtos\n\n\n\n\n\n\nlibrary(reticulate)\n\nWarning: package 'reticulate' was built under R version 4.1.3\n\n\nCrie uma variável x na sessão do Python\n\nx = [1, 2, 3]\n\nAcesse a variável Python x em um pedaço de código R:\n\npy$x\n\n[1] 1 2 3\n\n\nCrie uma nova variável y na sessão Python usando R, e passe um quadro de dados para y:\n\npy$y &lt;- head(cars)\n\nImprima a variável y em Python:\n\nprint(y)\n\n{'speed': [4.0, 4.0, 7.0, 7.0, 8.0, 9.0], 'dist': [2.0, 10.0, 4.0, 22.0, 16.0, 10.0]}\n\n\n\n\n\n\n\n\n\n\nPacote\nO que podemos fazer?\nExemplos\n\n\n\n\ndistill\nBlogs e sites\n- RStudio AI Blog\n\n\nbookdown\nLivros\n- Livro Ciência de Dados em R  - R for Data Science\n\n\nxaringan\nApresentações\n- Essa apresentação  - Build Your Own Universe - Garrick Aden-Buie & Travis Gerke\n\n\npagedown\nCurrículos, cartas e trabalhos acadêmicos\n- Relatório do Observatório da Insolvência  - Currículo do William Amorim\n\n\nflexdashboard\nDashboards\n- Tesouro Nacional\n\n\nlearnr\nTutoriais interativos\n- Text mining with tidy data principles  - Teacups, Giraffes, & Statistics\n\n\nrticles\nArtigos científicos\n\n\n\n\nOutros exemplos\nNewsletter Garimpo\n\n\n\n\n\n\n\n\nTodo arquivo RMarkdown/Quarto terá a seguinte estrutura:\n\nUm preâmbulo com configurações\n\n---\ntitle: \"Relatório maravilhoso\"\noutput: html_document\n---\n\nBlocos de texto (marcados em Markdown)\n\nTexto em __RMarkdown/Quarto__!\n\nBlocos de código (em R ou outra linguagem)\n\n```{r}\nprint(\"ola, codigo R\")\n```\n\nDependendo do formato de saída, o documento pode precisar ser dividido em vários arquivos ou precisar de arquivos adicionais.\n\n\n\n\nUtilizamos Markdown para marcar os textos do relatório.\nPrincipais marcadores utilizados para formatar texto:\n\numa palavra entre asteriscos fica em itálico: *texto* é transformado em texto\numa palavra entre dois asteríscos fica em negrito: **texto** é transformado em texto\num ou mais hashtags viram títulos: # Título muito grande, ## Título grande, ### Título médio, #### Título pequeno, ##### Título muito pequeno\nhiperlinks podem ser criados com a estrutura [texto](link):\n[link para o site da Curso-R](https://curso-r.com) é transformado em link para o site da Curso-R.\npara deixar o texto com esse formato (formato de código), apenas coloque o texto entre duas crases.\n\nMaterial de consulta: Livro: Ciência de Dados em R - Seção sobre Markdown\n\n\n\n\nAs versões mais recentes do RStudio permitem usar o Visual Editor.\n\nLeitura indicada:\n\nhttps://docs.posit.co/ide/user/ide/guide/documents/visual-editor.html\n\n\n\n\n\n\nFonte: Posit\n\n\n\n\n\n\n\n\nEm um arquivo .qmd ou .Rmd, precisamos escrever nossos códigos dentro dos chunks. Para inserir um chunk, utilize o atalho CTRL + ALT + I.\nÉ possível adicionar campos de código utilizando a seguinte sintaxe:\n\n```{r}\ncodigo em R aqui\n```\n\nDentro dos chunks você poderá escrever códigos em R como se fosse o nosso script .R tradicional.\n\nMaterial de consulta: Livro: Ciência de Dados em R - Seção sobre R Markdown\n\n\n\n\nOs arquivos .qmd ou .Rmd começam com códigos em yaml/yml.\nEsse “bloco” de código é delimitado por ---.\nApresenta metadados e parâmetros utilizados para gerar o documento final.\n\n\n---\ntitle: \"Relatórios automáticos\"\nsubtitle: \"O poder do RMarkdown\"\nauthor: \"Curso-R\"\ndate: \"Março de 2021\"\noutput: xaringan::moon_reader\n---\n\n\n\n\n\nPara gerarmos o relatório na extensão desejada, precisamos renderizá-lo, isto é, transformar o arquivo .qmd ou .Rmd em um PDF, HTML ou Word.\nIsso pode ser feito no RStudio a partir dos botões Knit (.Rmd) ou Render (.qmd), que fica logo acima do script, ou pelo atalho CTRL + SHIFT + K.\n\n\n\n\n\n\n\n\n\nFontr: Blog do Yihui Xie\n\n\n\n\n\n\n\n\n\nFonte: quarto.org\n\n\n\n\n\n\n\n\n\n\n\n\nIlustração por Allison Horst\n\n\n\n\n\n\n\n\n\n\noutput: html_document\n\n\n\n\n\noutput: word_document\n\n\n\n\n\n\n\n\nformat: html\n\n\n\n\n\nformat: docx\n\n\n\n\n\n\n\n\noutput: pdf_document\n\nCaso não tenha o \\(\\TeX\\):\n\ntinytex::install_tinytex()\n\n\n\n\n\n\n\n\nformat: pdf\n\nCaso não tenha o \\(\\TeX\\):\n\ntinytex::install_tinytex()\n\n\n\n\n\n\n\n\noutput: html_document\nknit: pagedown::chrome_print\n\nOu utilize a função pagedown::chrome_print() em um relatório em HTML:\n\npagedown::chrome_print(\"relatorio.html\")\n\nObs: Por enquanto não existe uma alternativa Quarto a isso.\n\n\n\n\n\nPowerpoint\n\n\noutput: powerpoint_presentation\n\n\nHTML\n\n\noutput: xaringan::moon_reader\n\n\n\n\n\nPowerpoint\n\n\nformat: pptx\n\n\nHTML\n\n\nformat: revealjs\n\n\n\n\n\nPodemos escrever arquivos com código, resultados, textos, imagens, etc.\nO mesmo conteúdo pode ser disponibilizado em diferentes tipos de saída.\nNos metadados (yaml) do arquivo .Rmd ou .qmd, definimos a saída no parâmetro output.\nMais saídas e comparação completa:\n\nRMarkdown\nQuarto"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#o-que-é-rmarkdown",
+    "href": "index.html#o-que-é-rmarkdown",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "O R Markdown é um pacote para criação de relatórios automatizados utilizando as linguagens de programação R, Python e de marcação Markdown.\n\n\nLinguagens de marcação utilizam marcadores (símbolos, tags, funções) para formatar um arquivo de texto simples. Os exemplos mais famosos de linguagem de marcação são o HTML e LaTeX.\n\n\nA linguagem de marcação Markdown serve para construirmos e formatarmos diversos formatos de arquivos (PDF, HTML, Word, entre outros) a partir de um arquivo de texto com regras bem simples.\nO RMarkdown é uma extensão de Markdown que nos permite colocar código de R.\n\nReferência do quarto: https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "index.html#por-que-o-rmarkdown-é-legal",
+    "href": "index.html#por-que-o-rmarkdown-é-legal",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Possibilita automatizar a criar produtos com o R. Construindo um relatório em RMarkdown, com exceção das interpretações e conclusões, só precisamos montá-lo uma vez. A partir daí, com apenas um clique podemos:\n\nreplicar o relatório para diversas versões da base de dados (modificações, correções, processos periódicos);\nreplicar o relatório para diversas variáveis.\nCriar documentos reprodutíveis\nCriar diversos tipos de produtos\n\n\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#o-que-podemos-fazer-com-essa-ferramenta",
+    "href": "index.html#o-que-podemos-fazer-com-essa-ferramenta",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Possibilita automatizar a criar produtos com o R e Python, através do pacote Reticulate Ushey, Allaire, e Tang (2023) que integra o R com Python.\nCom ele também é possível fazer a conexão com o SAS através da biblioteca SASPY\n\n\n\n\nSAS-PYTHON-R\n\n\nhttps://rstudio.github.io/reticulate/index.html https://bookdown.org/yihui/rmarkdown-cookbook/eng-python.html\n\nCom exceção das interpretações e conclusões, só precisamos montá-lo uma vez. A partir daí, com apenas um clique podemos:\n\nreplicar o relatório para diversas versões da base de dados (modificações, correções, processos periódicos);\nreplicar o relatório para diversas variáveis.\nCriar documentos reprodutíveis\nCriar diversos tipos de produtos"
+  },
+  {
+    "objectID": "index.html#exemplos-de-integraçao-r-e-python",
+    "href": "index.html#exemplos-de-integraçao-r-e-python",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "library(reticulate)\n\nWarning: package 'reticulate' was built under R version 4.1.3\n\n\nCrie uma variável x na sessão do Python\n\nx = [1, 2, 3]\n\nAcesse a variável Python x em um pedaço de código R:\n\npy$x\n\n[1] 1 2 3\n\n\nCrie uma nova variável y na sessão Python usando R, e passe um quadro de dados para y:\n\npy$y &lt;- head(cars)\n\nImprima a variável y em Python:\n\nprint(y)\n\n{'speed': [4.0, 4.0, 7.0, 7.0, 8.0, 9.0], 'dist': [2.0, 10.0, 4.0, 22.0, 16.0, 10.0]}"
+  },
+  {
+    "objectID": "index.html#algumas-aplicações",
+    "href": "index.html#algumas-aplicações",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Pacote\nO que podemos fazer?\nExemplos\n\n\n\n\ndistill\nBlogs e sites\n- RStudio AI Blog\n\n\nbookdown\nLivros\n- Livro Ciência de Dados em R  - R for Data Science\n\n\nxaringan\nApresentações\n- Essa apresentação  - Build Your Own Universe - Garrick Aden-Buie & Travis Gerke\n\n\npagedown\nCurrículos, cartas e trabalhos acadêmicos\n- Relatório do Observatório da Insolvência  - Currículo do William Amorim\n\n\nflexdashboard\nDashboards\n- Tesouro Nacional\n\n\nlearnr\nTutoriais interativos\n- Text mining with tidy data principles  - Teacups, Giraffes, & Statistics\n\n\nrticles\nArtigos científicos\n\n\n\n\nOutros exemplos\nNewsletter Garimpo"
+  },
+  {
+    "objectID": "index.html#estrutura-dos-relatórios",
+    "href": "index.html#estrutura-dos-relatórios",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Todo arquivo RMarkdown/Quarto terá a seguinte estrutura:\n\nUm preâmbulo com configurações\n\n---\ntitle: \"Relatório maravilhoso\"\noutput: html_document\n---\n\nBlocos de texto (marcados em Markdown)\n\nTexto em __RMarkdown/Quarto__!\n\nBlocos de código (em R ou outra linguagem)\n\n```{r}\nprint(\"ola, codigo R\")\n```\n\nDependendo do formato de saída, o documento pode precisar ser dividido em vários arquivos ou precisar de arquivos adicionais."
+  },
+  {
+    "objectID": "index.html#sintaxe-markdown",
+    "href": "index.html#sintaxe-markdown",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Utilizamos Markdown para marcar os textos do relatório.\nPrincipais marcadores utilizados para formatar texto:\n\numa palavra entre asteriscos fica em itálico: *texto* é transformado em texto\numa palavra entre dois asteríscos fica em negrito: **texto** é transformado em texto\num ou mais hashtags viram títulos: # Título muito grande, ## Título grande, ### Título médio, #### Título pequeno, ##### Título muito pequeno\nhiperlinks podem ser criados com a estrutura [texto](link):\n[link para o site da Curso-R](https://curso-r.com) é transformado em link para o site da Curso-R.\npara deixar o texto com esse formato (formato de código), apenas coloque o texto entre duas crases.\n\nMaterial de consulta: Livro: Ciência de Dados em R - Seção sobre Markdown"
+  },
+  {
+    "objectID": "index.html#visual-editor",
+    "href": "index.html#visual-editor",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "As versões mais recentes do RStudio permitem usar o Visual Editor.\n\nLeitura indicada:\n\nhttps://docs.posit.co/ide/user/ide/guide/documents/visual-editor.html\n\n\n\n\n\n\nFonte: Posit"
+  },
+  {
+    "objectID": "index.html#chunks---campos-de-código",
+    "href": "index.html#chunks---campos-de-código",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Em um arquivo .qmd ou .Rmd, precisamos escrever nossos códigos dentro dos chunks. Para inserir um chunk, utilize o atalho CTRL + ALT + I.\nÉ possível adicionar campos de código utilizando a seguinte sintaxe:\n\n```{r}\ncodigo em R aqui\n```\n\nDentro dos chunks você poderá escrever códigos em R como se fosse o nosso script .R tradicional.\n\nMaterial de consulta: Livro: Ciência de Dados em R - Seção sobre R Markdown"
+  },
+  {
+    "objectID": "index.html#yaml",
+    "href": "index.html#yaml",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Os arquivos .qmd ou .Rmd começam com códigos em yaml/yml.\nEsse “bloco” de código é delimitado por ---.\nApresenta metadados e parâmetros utilizados para gerar o documento final.\n\n\n---\ntitle: \"Relatórios automáticos\"\nsubtitle: \"O poder do RMarkdown\"\nauthor: \"Curso-R\"\ndate: \"Março de 2021\"\noutput: xaringan::moon_reader\n---"
+  },
+  {
+    "objectID": "index.html#render",
+    "href": "index.html#render",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Para gerarmos o relatório na extensão desejada, precisamos renderizá-lo, isto é, transformar o arquivo .qmd ou .Rmd em um PDF, HTML ou Word.\nIsso pode ser feito no RStudio a partir dos botões Knit (.Rmd) ou Render (.qmd), que fica logo acima do script, ou pelo atalho CTRL + SHIFT + K."
+  },
+  {
+    "objectID": "index.html#o-que-acabamos-de-fazer",
+    "href": "index.html#o-que-acabamos-de-fazer",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Fontr: Blog do Yihui Xie\n\n\n\n\n\n\n\n\n\nFonte: quarto.org"
+  },
+  {
+    "objectID": "index.html#principais-saídas",
+    "href": "index.html#principais-saídas",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Ilustração por Allison Horst"
+  },
+  {
+    "objectID": "index.html#relatórios-.rmd",
+    "href": "index.html#relatórios-.rmd",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "output: html_document\n\n\n\n\n\noutput: word_document"
+  },
+  {
+    "objectID": "index.html#relatórios-.qmd",
+    "href": "index.html#relatórios-.qmd",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "format: html\n\n\n\n\n\nformat: docx"
+  },
+  {
+    "objectID": "index.html#relatórios-.rmd-1",
+    "href": "index.html#relatórios-.rmd-1",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "output: pdf_document\n\nCaso não tenha o \\(\\TeX\\):\n\ntinytex::install_tinytex()"
+  },
+  {
+    "objectID": "index.html#relatórios-.qmd-1",
+    "href": "index.html#relatórios-.qmd-1",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "format: pdf\n\nCaso não tenha o \\(\\TeX\\):\n\ntinytex::install_tinytex()"
+  },
+  {
+    "objectID": "index.html#relatórios",
+    "href": "index.html#relatórios",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "output: html_document\nknit: pagedown::chrome_print\n\nOu utilize a função pagedown::chrome_print() em um relatório em HTML:\n\npagedown::chrome_print(\"relatorio.html\")\n\nObs: Por enquanto não existe uma alternativa Quarto a isso."
+  },
+  {
+    "objectID": "index.html#apresentações-.rmd",
+    "href": "index.html#apresentações-.rmd",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Powerpoint\n\n\noutput: powerpoint_presentation\n\n\nHTML\n\n\noutput: xaringan::moon_reader"
+  },
+  {
+    "objectID": "index.html#apresentações-.qmd",
+    "href": "index.html#apresentações-.qmd",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Powerpoint\n\n\nformat: pptx\n\n\nHTML\n\n\nformat: revealjs"
+  },
+  {
+    "objectID": "index.html#resumo",
+    "href": "index.html#resumo",
+    "title": "Demonstração Infográficos",
+    "section": "",
+    "text": "Podemos escrever arquivos com código, resultados, textos, imagens, etc.\nO mesmo conteúdo pode ser disponibilizado em diferentes tipos de saída.\nNos metadados (yaml) do arquivo .Rmd ou .qmd, definimos a saída no parâmetro output.\nMais saídas e comparação completa:\n\nRMarkdown\nQuarto"
+  },
+  {
+    "objectID": "slides/apresentacao.html#usar-um-modelo-para-word",
+    "href": "slides/apresentacao.html#usar-um-modelo-para-word",
+    "title": "Infográficos do Observatório",
+    "section": "Usar um modelo para word",
+    "text": "Usar um modelo para word\n\nEm alguns casos, somos obrigados a enviar arquivos .docx (ex: algumas revistas científicas apenas aceitam esse tipo de arquivo).\nPodemos informar um template de arquivo word como referência. As regras de formatação serão copiadas. Não funciona perfeitamente!\n\nformat:\n  docx:\n    reference-doc: \"word_template.docx\""
+  },
+  {
+    "objectID": "slides/apresentacao.html#exportar-um-.docx-tunado",
+    "href": "slides/apresentacao.html#exportar-um-.docx-tunado",
+    "title": "Infográficos do Observatório",
+    "section": "Exportar um .docx tunado",
+    "text": "Exportar um .docx tunado\n\nEm alguns casos, somos obrigados a enviar arquivos .docx (ex: algumas revistas científicas apenas aceitam esse tipo de arquivo).\nExemplo de YAML:\n\nformat:\n  docx:\n    reference-doc: \"word_template.docx\"\n    number-sections: false\nbibliography: \n  - references.bib\n  - packages.bib\ncsl: abnt.csl"
+  },
+  {
+    "objectID": "slides/apresentacao.html#introdução-à-html-e-css",
+    "href": "slides/apresentacao.html#introdução-à-html-e-css",
+    "title": "Infográficos do Observatório",
+    "section": "Introdução à HTML e CSS",
+    "text": "Introdução à HTML e CSS\n\nQuando criamos um arquivo Quarto que gera um output em .html, esse arquivo .html é interpretado pelo navegador (ex. Chrome), utilizando também os arquivos .css e .js\n\nHTML (HyperText Markup Language - Linguagem de Marcação de Hipertexto): é uma linguagem de marcação, é usado para estruturar páginas da internet (websites).\nCSS (Cascading Style Sheets - Folha de Estilo em Cascata): é usado para estilizar os elementos escritos no HTML.\nJavascript: é uma linguagem de programação, permite que as páginas sejam dinâmicas."
+  },
+  {
+    "objectID": "slides/apresentacao.html#html",
+    "href": "slides/apresentacao.html#html",
+    "title": "Infográficos do Observatório",
+    "section": "HTML 🧱 🏗",
+    "text": "HTML 🧱 🏗\n\nHTML descreve a estrutura de uma página web.\nHTML consiste em uma série de elementos. Estes elementos mostram para o navegador (o browser) como apresentar o conteúdo.\nUm elemento em HTML consiste em uma tag inicial, algum conteúdo que será marcado, e a tag final (que é diferente da tag inicial por possuir a barra / )\n\n&lt;nomedatag&gt;Conteúdo a ser marcado vai aqui...&lt;/nomedatag&gt;\n\nElementos em HTML podem ter atributos de classe (class). As classes geralmente são usadas para referenciar um estilo.\n\n&lt;nomedatag class=\"nomedaclasse\"&gt;\nConteúdo a ser marcado vai aqui...\n&lt;/nomedatag&gt;"
+  },
+  {
+    "objectID": "slides/apresentacao.html#exemplo",
+    "href": "slides/apresentacao.html#exemplo",
+    "title": "Infográficos do Observatório",
+    "section": "Exemplo 🧱 🏗",
+    "text": "Exemplo 🧱 🏗\nCódigo em Markdown\nEste é o curso de **Relatórios e visualização de dados**,\noferecido pela [Curso-R](https://curso-r.com/).\nCódigo HTML\n&lt;p&gt; \nEste é o curso de &lt;b&gt;Relatórios e visualização de dados&lt;/b&gt;,\noferecido pela &lt;a href='https://curso-r.com/'&gt;Curso-R&lt;/a&gt;.\n&lt;/p&gt; \nComo aparece\n\nEste é o curso de Relatórios e visualização de dados, oferecido pela Curso-R."
+  },
+  {
+    "objectID": "slides/apresentacao.html#css",
+    "href": "slides/apresentacao.html#css",
+    "title": "Infográficos do Observatório",
+    "section": "CSS 🎨",
+    "text": "CSS 🎨\n\nCSS é uma sigla para Cascading Style Sheets (tradução literal: folha de estilo em cascada).\nCSS descreve como os elementos em HTML serão apresentados.\nVocê pode criar estilos no seu arquivo .qmd, ou também salvar em um arquivo externo. As folhas de estilo são salvas em arquivos com a extensão .css.\nVocê pode criar um arquivo CSS e reaproveitar em diversos arquivos HTML.\nCriar estilos no seu arquivo .Rmd:\n\nColocando o estilo dentro de uma tag html &lt;style&gt;\nCriando um Chunk de código CSS"
+  },
+  {
+    "objectID": "slides/apresentacao.html#exemplo-de-elementos",
+    "href": "slides/apresentacao.html#exemplo-de-elementos",
+    "title": "Infográficos do Observatório",
+    "section": "Exemplo de elementos",
+    "text": "Exemplo de elementos\n\nPara elementos, usamos a seguinte estrutura:\n\nnomedoelemento {\n\n  propriedade: valor da propriedade;\n\n}\nExemplo:\np {\n\n  font-size: 20px;  \n\n}"
+  },
+  {
+    "objectID": "slides/apresentacao.html#exemplo-de-classe",
+    "href": "slides/apresentacao.html#exemplo-de-classe",
+    "title": "Infográficos do Observatório",
+    "section": "Exemplo de classe",
+    "text": "Exemplo de classe\n\nPara classes, usamos a estrutura dos elementos, porém adicionando um ponto antes:\n\n.nomedaclasse {\n\n  propriedade: valor da propriedade;\n\n}\nExemplo:\n.textogrande {\n\n  font-size: 40px;  \n\n}"
+  },
+  {
+    "objectID": "slides/apresentacao.html#exemplo-1",
+    "href": "slides/apresentacao.html#exemplo-1",
+    "title": "Infográficos do Observatório",
+    "section": "Exemplo 1 🎨",
+    "text": "Exemplo 1 🎨\nCódigo HTML\n&lt;style&gt;\n.textorosa{\ncolor: pink;\n\n}\n&lt;/style&gt;\n&lt;p&gt; \nEste é o curso de \n&lt;b class=\"textorosa\"&gt;Relatórios e visualização de dados&lt;/b&gt;,\noferecido pela &lt;a href='https://curso-r.com/'&gt;Curso-R&lt;/a&gt;.\n&lt;/p&gt; \n]\nComo aparece\n\n\nEste é o curso de Relatórios e visualização de dados, oferecido pela Curso-R."
+  },
+  {
+    "objectID": "slides/apresentacao.html#exemplo-2",
+    "href": "slides/apresentacao.html#exemplo-2",
+    "title": "Infográficos do Observatório",
+    "section": "Exemplo 2 🎨",
+    "text": "Exemplo 2 🎨\nCódigo em Markdown\n\n```{css}\n.textoroxo{\n  color: #6A0DAD;\n}\n```\n\n\nEste é o curso de [Relatórios e visualização de dados]{.textoroxo},\noferecido pela [Curso-R](https://curso-r.com/).\nComo aparece\nEste é o curso de Relatórios e visualização de dados, oferecido pela Curso-R."
+  },
+  {
+    "objectID": "slides/apresentacao.html#adicionando-um-arquivo-css",
+    "href": "slides/apresentacao.html#adicionando-um-arquivo-css",
+    "title": "Infográficos do Observatório",
+    "section": "Adicionando um arquivo CSS",
+    "text": "Adicionando um arquivo CSS\n---\nformat:\n  html:\n    css: styles.css\n---\nReferência: https://quarto.org/docs/visual-editor/content.html#css-styles"
+  },
+  {
+    "objectID": "slides/apresentacao.html#dica-de-ouro",
+    "href": "slides/apresentacao.html#dica-de-ouro",
+    "title": "Infográficos do Observatório",
+    "section": "Dica de ouro 🚩",
+    "text": "Dica de ouro 🚩\nUse muito as ferramentas de desenvolvedor(a) do navegador.\nPermite explorar o conteúdo de uma página web.\nAtalho costuma ser: CTRL + SHIFT + C\n\nFirefox - Page inspector\nChrome"
+  },
+  {
+    "objectID": "slides/apresentacao.html#referências",
+    "href": "slides/apresentacao.html#referências",
+    "title": "Infográficos do Observatório",
+    "section": "Referências",
+    "text": "Referências\n\nMozilla Web Docs\nw3schools.com - HTML\nw3schools.com - CSS\nFree Code Camp\nPalestra do Garrick Aden-Buie: Using xaringan to learn web development"
+  },
+  {
+    "objectID": "slides/apresentacao.html#o-que-é-rmarkdown",
+    "href": "slides/apresentacao.html#o-que-é-rmarkdown",
+    "title": "Infográficos do Observatório",
+    "section": "O que é RMarkdown?",
+    "text": "O que é RMarkdown?\n\nO R Markdown é um pacote para criação de relatórios automatizados utilizando as linguagens de programação R, Python e de marcação Markdown.\n\n\nLinguagens de marcação utilizam marcadores (símbolos, tags, funções) para formatar um arquivo de texto simples. Os exemplos mais famosos de linguagem de marcação são o HTML e LaTeX.\n\nReferência do quarto: https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "slides/apresentacao.html#o-que-podemos-fazer-com-essa-ferramenta",
+    "href": "slides/apresentacao.html#o-que-podemos-fazer-com-essa-ferramenta",
+    "title": "Infográficos do Observatório",
+    "section": "O que podemos fazer com essa ferramenta?",
+    "text": "O que podemos fazer com essa ferramenta?\n\nPossibilita automatizar a criar produtos com o R e Python, através do pacote Reticulate @reticulate que integra o R com Python. Com ele também é possível fazer a conexão com o SAS através da biblioteca SASPY\n\nhttps://www.youtube.com/watch?v=A2-Ti-c6w8c&feature=youtu.be https://rstudio.github.io/reticulate/index.html https://bookdown.org/yihui/rmarkdown-cookbook/eng-python.html"
+  },
+  {
+    "objectID": "slides/apresentacao.html#exemplos-de-integraçao-r-e-python",
+    "href": "slides/apresentacao.html#exemplos-de-integraçao-r-e-python",
+    "title": "Infográficos do Observatório",
+    "section": "Exemplos de integraçao R e Python",
+    "text": "Exemplos de integraçao R e Python\n\nlibrary(reticulate)\n\nCrie uma variável x na sessão do Python\n\nx = [1, 2, 3]\n\nAcesse a variável Python x em um pedaço de código R:\n\npy$x\n\n[1] 1 2 3"
+  },
+  {
+    "objectID": "slides/apresentacao.html#algumas-aplicações",
+    "href": "slides/apresentacao.html#algumas-aplicações",
+    "title": "Infográficos do Observatório",
+    "section": "Algumas aplicações",
+    "text": "Algumas aplicações\n\n\n\n\n\nPacote\nO que podemos fazer?\nExemplos\n\n\n\n\ndistill\nBlogs e sites\n- RStudio AI Blog\n\n\nbookdown\nLivros\n- Livro Ciência de Dados em R  - R for Data Science\n\n\nxaringan\nApresentações\n- Essa apresentação  - Build Your Own Universe - Garrick Aden-Buie & Travis Gerke"
+  },
+  {
+    "objectID": "slides/apresentacao.html#estrutura-dos-relatórios",
+    "href": "slides/apresentacao.html#estrutura-dos-relatórios",
+    "title": "Infográficos do Observatório",
+    "section": "Estrutura dos relatórios",
+    "text": "Estrutura dos relatórios\nTodo arquivo RMarkdown/Quarto terá a seguinte estrutura:\n\nUm preâmbulo com configurações\n\n---\ntitle: \"Relatório maravilhoso\"\noutput: html_document\n---\n\nBlocos de texto (marcados em Markdown)\n\nTexto em __RMarkdown/Quarto__!"
+  },
+  {
+    "objectID": "slides/apresentacao.html#sintaxe-markdown",
+    "href": "slides/apresentacao.html#sintaxe-markdown",
+    "title": "Infográficos do Observatório",
+    "section": "Sintaxe Markdown",
+    "text": "Sintaxe Markdown\nUtilizamos Markdown para marcar os textos do relatório.\nPrincipais marcadores utilizados para formatar texto:\n\numa palavra entre asteriscos fica em itálico: *texto* é transformado em texto\n.uma palavra entre dois asteríscos fica em negrito: **texto** é transformado em texto\num ou mais hashtags viram títulos: # Título muito grande, ## Título grande, ### Título médio, #### Título pequeno, ##### Título muito pequeno\nhiperlinks podem ser criados com a estrutura [texto](link):"
+  },
+  {
+    "objectID": "slides/apresentacao.html#visual-editor",
+    "href": "slides/apresentacao.html#visual-editor",
+    "title": "Infográficos do Observatório",
+    "section": "Visual Editor",
+    "text": "Visual Editor\n\nAs versões mais recentes do RStudio permitem usar o Visual Editor.\n\nLeitura indicada:\n\nhttps://docs.posit.co/ide/user/ide/guide/documents/visual-editor.html\n\n\nFonte: Posit"
+  },
+  {
+    "objectID": "slides/apresentacao.html#chunks---campos-de-código",
+    "href": "slides/apresentacao.html#chunks---campos-de-código",
+    "title": "Infográficos do Observatório",
+    "section": "Chunks - Campos de código",
+    "text": "Chunks - Campos de código\n\nEm um arquivo .qmd ou .Rmd, precisamos escrever nossos códigos dentro dos chunks. Para inserir um chunk, utilize o atalho CTRL + ALT + I.\nÉ possível adicionar campos de código utilizando a seguinte sintaxe:\n\n```{r}\ncodigo em R aqui\n```"
+  },
+  {
+    "objectID": "slides/apresentacao.html#yaml",
+    "href": "slides/apresentacao.html#yaml",
+    "title": "Infográficos do Observatório",
+    "section": "YAML",
+    "text": "YAML\n\nOs arquivos .qmd ou .Rmd começam com códigos em yaml/yml.\nEsse “bloco” de código é delimitado por ---.\nApresenta metadados e parâmetros utilizados para gerar o documento final.\n\n\n---\ntitle: \"Relatórios automáticos\"\nsubtitle: \"Observatório de Pessoal\"\nauthor: \"CGINF\"\ndate: \"Março de 2021\"\noutput: xaringan::moon_reader\n---"
+  },
+  {
+    "objectID": "slides/apresentacao.html#render",
+    "href": "slides/apresentacao.html#render",
+    "title": "Infográficos do Observatório",
+    "section": "Render!",
+    "text": "Render!\n\nPara gerarmos o relatório na extensão desejada, precisamos renderizá-lo, isto é, transformar o arquivo .qmd ou .Rmd em um PDF, HTML ou Word.\nIsso pode ser feito no RStudio a partir dos botões Knit (.Rmd) ou Render (.qmd), que fica logo acima do script, ou pelo atalho CTRL + SHIFT + K."
+  },
+  {
+    "objectID": "slides/apresentacao.html#o-que-acabamos-de-fazer",
+    "href": "slides/apresentacao.html#o-que-acabamos-de-fazer",
+    "title": "Infográficos do Observatório",
+    "section": "O que acabamos de fazer",
+    "text": "O que acabamos de fazer\n\n\n\n\n\nFontr: Blog do Yihui Xie\n\n\n\n\n\n\n\n\n\nFonte: quarto.org"
+  },
+  {
+    "objectID": "slides/apresentacao.html#principais-saídas",
+    "href": "slides/apresentacao.html#principais-saídas",
+    "title": "Infográficos do Observatório",
+    "section": "Principais saídas",
+    "text": "Principais saídas\n\nIlustração por Allison Horst"
+  },
+  {
+    "objectID": "slides/apresentacao.html#relatórios-.rmd",
+    "href": "slides/apresentacao.html#relatórios-.rmd",
+    "title": "Infográficos do Observatório",
+    "section": "Relatórios (.Rmd)",
+    "text": "Relatórios (.Rmd)\nHTML\n\noutput: html_document\n\nWord (.docx)\n\noutput: word_document"
+  },
+  {
+    "objectID": "slides/apresentacao.html#relatórios-.qmd",
+    "href": "slides/apresentacao.html#relatórios-.qmd",
+    "title": "Infográficos do Observatório",
+    "section": "Relatórios (.qmd)",
+    "text": "Relatórios (.qmd)\nHTML\n\nformat: html\n\nWord (.docx)\n\nformat: docx"
+  },
+  {
+    "objectID": "slides/apresentacao.html#relatórios-.rmd-1",
+    "href": "slides/apresentacao.html#relatórios-.rmd-1",
+    "title": "Infográficos do Observatório",
+    "section": "Relatórios (.Rmd)",
+    "text": "Relatórios (.Rmd)\nPDF (com \\(\\TeX\\))\n\noutput: pdf_document\n\nCaso não tenha o \\(\\TeX\\):\n\ntinytex::install_tinytex()"
+  },
+  {
+    "objectID": "slides/apresentacao.html#relatórios-.qmd-1",
+    "href": "slides/apresentacao.html#relatórios-.qmd-1",
+    "title": "Infográficos do Observatório",
+    "section": "Relatórios (.qmd)",
+    "text": "Relatórios (.qmd)\nPDF (com \\(\\TeX\\))\n\nformat: pdf\n\nCaso não tenha o \\(\\TeX\\):\n\ntinytex::install_tinytex()"
+  },
+  {
+    "objectID": "slides/apresentacao.html#relatórios",
+    "href": "slides/apresentacao.html#relatórios",
+    "title": "Infográficos do Observatório",
+    "section": "Relatórios",
+    "text": "Relatórios\nPDF com o pacote Pagedown\n\noutput: html_document\nknit: pagedown::chrome_print\n\nOu utilize a função pagedown::chrome_print() em um relatório em HTML:\n\npagedown::chrome_print(\"relatorio.html\")\n\nObs: Por enquanto não existe uma alternativa Quarto a isso."
+  },
+  {
+    "objectID": "slides/apresentacao.html#apresentações-.rmd",
+    "href": "slides/apresentacao.html#apresentações-.rmd",
+    "title": "Infográficos do Observatório",
+    "section": "Apresentações (.Rmd)",
+    "text": "Apresentações (.Rmd)\n\nPowerpoint\n\n\noutput: powerpoint_presentation\n\n\nHTML\n\n\noutput: xaringan::moon_reader"
+  },
+  {
+    "objectID": "slides/apresentacao.html#apresentações-.qmd",
+    "href": "slides/apresentacao.html#apresentações-.qmd",
+    "title": "Infográficos do Observatório",
+    "section": "Apresentações (.qmd)",
+    "text": "Apresentações (.qmd)\n\nPowerpoint\n\n\nformat: pptx\n\n\nHTML\n\n\nformat: revealjs"
+  },
+  {
+    "objectID": "slides/apresentacao.html#resumo",
+    "href": "slides/apresentacao.html#resumo",
+    "title": "Infográficos do Observatório",
+    "section": "Resumo",
+    "text": "Resumo\n\nPodemos escrever arquivos com código, resultados, textos, imagens, etc.\nO mesmo conteúdo pode ser disponibilizado em diferentes tipos de saída.\nNos metadados (yaml) do arquivo .Rmd ou .qmd, definimos a saída no parâmetro output.\nMais saídas e comparação completa:\n\nRMarkdown\nQuarto"
+  },
+  {
+    "objectID": "slides/apresentacao.html#section",
+    "href": "slides/apresentacao.html#section",
+    "title": "Infográficos do Observatório",
+    "section": "",
+    "text": "Com exceção das interpretações e conclusões, só precisamos montá-lo uma vez. A partir daí, com apenas um clique podemos:\n\nreplicar o relatório para diversas versões da base de dados (modificações, correções, processos periódicos);\nreplicar o relatório para diversas variáveis.\nCriar documentos reprodutíveis\nCriar diversos tipos de produtos"
+  },
+  {
+    "objectID": "slides/apresentacao.html#section-1",
+    "href": "slides/apresentacao.html#section-1",
+    "title": "Infográficos do Observatório",
+    "section": "",
+    "text": "Crie uma nova variável y na sessão Python usando R, e passe um quadro de dados para y:\n\npy$y &lt;- head(cars)\n\nImprima a variável y em Python:\n\nprint(y)\n\n   speed  dist\n0    4.0   2.0\n1    4.0  10.0\n2    7.0   4.0\n3    7.0  22.0\n4    8.0  16.0\n5    9.0  10.0"
+  },
+  {
+    "objectID": "slides/apresentacao.html#section-2",
+    "href": "slides/apresentacao.html#section-2",
+    "title": "Infográficos do Observatório",
+    "section": "",
+    "text": "Pacote\nO que podemos fazer?\nExemplos\n\n\n\n\npagedown\nCurrículos, cartas e trabalhos acadêmicos\n- Relatório do Observatório da Insolvência\n\n\nflexdashboard\nDashboards\n- Tesouro Nacional\n\n\nlearnr\nTutoriais interativos\n- Text mining with tidy data principles  - Teacups, Giraffes, & Statistics"
+  },
+  {
+    "objectID": "slides/apresentacao.html#section-3",
+    "href": "slides/apresentacao.html#section-3",
+    "title": "Infográficos do Observatório",
+    "section": "",
+    "text": "Pacote\nO que podemos fazer?\nExemplos\n\n\n\n\nrticles\nArtigos científicos\n\n\n\n\nOutros exemplos\nNewsletter Garimpo"
+  },
+  {
+    "objectID": "slides/apresentacao.html#section-4",
+    "href": "slides/apresentacao.html#section-4",
+    "title": "Infográficos do Observatório",
+    "section": "",
+    "text": "Blocos de código (em R ou outra linguagem)\n\n```{r}\nprint(\"ola, codigo R\")\n```\n\nDependendo do formato de saída, o documento pode precisar ser dividido em vários arquivos ou precisar de arquivos adicionais."
+  },
+  {
+    "objectID": "slides/apresentacao.html#section-5",
+    "href": "slides/apresentacao.html#section-5",
+    "title": "Infográficos do Observatório",
+    "section": "",
+    "text": "[link para o site da Curso-R](https://curso-r.com) é transformado em link para o site da Curso-R.\npara deixar o texto com esse formato (formato de código), apenas coloque o texto entre duas crases.\n\nMaterial de consulta: Livro: Ciência de Dados em R - Seção sobre Markdown"
+  },
+  {
+    "objectID": "slides/apresentacao.html#section-6",
+    "href": "slides/apresentacao.html#section-6",
+    "title": "Infográficos do Observatório",
+    "section": "",
+    "text": "[link para o site da Curso-R](https://curso-r.com) é transformado em link para o site da Curso-R.\npara deixar o texto com esse formato (formato de código), apenas coloque o texto entre duas crases.\n\nMaterial de consulta: Livro: Ciência de Dados em R - Seção sobre Markdown"
+  },
+  {
+    "objectID": "slides/apresentacao.html#infográficos",
+    "href": "slides/apresentacao.html#infográficos",
+    "title": "Infográficos do Observatório",
+    "section": "Infográficos",
+    "text": "Infográficos\n\nUtilzando o Python\n\nhttps://plotly.com/python/getting-started/#plotly-charts-in-dash\n\n\nimport plotly.express as px\nfig = px.bar(x=[\"a\", \"b\", \"c\"], y=[1, 3, 2])\nfig"
+  },
+  {
+    "objectID": "slides/apresentacao.html#utilzando-o-r",
+    "href": "slides/apresentacao.html#utilzando-o-r",
+    "title": "Infográficos do Observatório",
+    "section": "Utilzando o R",
+    "text": "Utilzando o R\nhttps://plotly.com/r/getting-started/\n\nlibrary(plotly)\nfig &lt;- plot_ly(midwest, x = ~percollege, color = ~state, type = \"box\")\nfig"
+  },
+  {
+    "objectID": "slides/apresentacao.html#infográficos-utilzando-o-python",
+    "href": "slides/apresentacao.html#infográficos-utilzando-o-python",
+    "title": "Infográficos do Observatório",
+    "section": "Infográficos Utilzando o Python",
+    "text": "Infográficos Utilzando o Python\nhttps://plotly.com/python/getting-started/#plotly-charts-in-dash\n\n\nimport plotly.express as px\nfig = px.bar(x=[\"a\", \"b\", \"c\"], y=[1, 3, 2])\nfig"
+  },
+  {
+    "objectID": "slides/apresentacao.html#infográficos-utilzando-o-python-1",
+    "href": "slides/apresentacao.html#infográficos-utilzando-o-python-1",
+    "title": "Infográficos do Observatório",
+    "section": "Infográficos Utilzando o Python",
+    "text": "Infográficos Utilzando o Python\nhttps://plotly.com/r/getting-started/\n\nlibrary(plotly)\nfig &lt;- plot_ly(midwest, x = ~percollege, color = ~state, type = \"box\")\nfig"
+  },
+  {
+    "objectID": "slides/apresentacao.html#personalizar-templates",
+    "href": "slides/apresentacao.html#personalizar-templates",
+    "title": "Infográficos do Observatório",
+    "section": "Personalizar templates",
+    "text": "Personalizar templates\nstyles.css\nMaterial de consulta: Livro: Ciência de Dados em R - Seção sobre R Markdown"
+  },
+  {
+    "objectID": "slides/apresentacao.html#inline-formatação",
+    "href": "slides/apresentacao.html#inline-formatação",
+    "title": "Infográficos do Observatório",
+    "section": "Inline + Formatação",
+    "text": "Inline + Formatação\n\nespecies &lt;- palmerpenguins::penguins |&gt; \n  dplyr::pull(species) |&gt; \n  unique() |&gt;\n  knitr::combine_words(and = \" e \", oxford_comma = FALSE)\n\npi_bonitinho &lt;- round(pi, 2)\npi_reais &lt;- scales::dollar(pi, prefix = \"R$ \", decimal.mark = \",\", big.mark = \".\")\n\nA base dos pinguins tem 344 linhas. Os pinguins estudados na base são Adelie, Gentoo e Chinstrap. O Pi é mais ou menos 3.14 e isso é Pi reais: R$ 3,14."
+  },
+  {
+    "objectID": "slides/apresentacao.html#compartilhando-os-resultados",
+    "href": "slides/apresentacao.html#compartilhando-os-resultados",
+    "title": "Infográficos do Observatório",
+    "section": "Compartilhando os resultados",
+    "text": "Compartilhando os resultados\nPara o caso do Observatório, a saída será um HTML e talvez um PDF.\nNo HTML, vamos publicar em um link e embedar no Observatório com GITHUB Pages e/ou Netlify Drop"
+  },
+  {
+    "objectID": "slides/apresentacao.html#disponibilizar-na-internet",
+    "href": "slides/apresentacao.html#disponibilizar-na-internet",
+    "title": "Infográficos do Observatório",
+    "section": "Disponibilizar na internet",
+    "text": "Disponibilizar na internet\n\nDICA IMPORTANTE: Busque nomear seus arquivos como index.html"
+  },
+  {
+    "objectID": "slides/apresentacao.html#disponibilizar-utilizando-o-netlify-drop",
+    "href": "slides/apresentacao.html#disponibilizar-utilizando-o-netlify-drop",
+    "title": "Infográficos do Observatório",
+    "section": "Disponibilizar utilizando o Netlify Drop",
+    "text": "Disponibilizar utilizando o Netlify Drop\n\nhttps://app.netlify.com/drop\nGratuito\nPara quem não usa GitHub.\nPodemos subir uma pasta com todo o conteúdo dentro.\nMais fácil, mas não dá pra ficar atualizando o material depois de um jeito fácil."
+  },
+  {
+    "objectID": "slides/apresentacao.html#quarto-pub",
+    "href": "slides/apresentacao.html#quarto-pub",
+    "title": "Infográficos do Observatório",
+    "section": "Quarto pub",
+    "text": "Quarto pub\nPrimeiros passos usando Quarto na linha de comando\n\nO Quarto é um CLI: Command Line Interface - Interface de linha de comando.\nPodemos usar o Quarto no terminal."
+  },
+  {
+    "objectID": "slides/apresentacao.html#section-7",
+    "href": "slides/apresentacao.html#section-7",
+    "title": "Infográficos do Observatório",
+    "section": "",
+    "text": "https://raw.githubusercontent.com/Z3tt/TidyTuesday/main/plots/2021_22/2021_22_MarioKart.png"
+  },
+  {
+    "objectID": "slides/apresentacao.html#quartopub",
+    "href": "slides/apresentacao.html#quartopub",
+    "title": "Infográficos do Observatório",
+    "section": "QuartoPub",
+    "text": "QuartoPub\n\nVamos disponibilizar nossa apresentação no QuartoPub: https://quartopub.com/\nNo terminal, usar o comando a seguir, e seguir o passo a passo.\n\nquarto publish quarto-pub nome-do-arquivo.qmd"
+  },
+  {
+    "objectID": "slides/apresentacao.html#disponibilizar-utilizando-o-github",
+    "href": "slides/apresentacao.html#disponibilizar-utilizando-o-github",
+    "title": "Infográficos do Observatório",
+    "section": "Disponibilizar utilizando o GitHub",
+    "text": "Disponibilizar utilizando o GitHub\n\nGratuito!\nTrês passos:\n\nConfigurar o Git e o GitHub com o RStudio - 1 vez por usuário do computador.\nVincular o projeto a um repositório no GitHub - 1 vez por projeto.\nAtivar o GitHub Pages - 1 vez por projeto."
+  },
+  {
+    "objectID": "slides/apresentacao.html#disponibilizar-utilizando-o-github-1",
+    "href": "slides/apresentacao.html#disponibilizar-utilizando-o-github-1",
+    "title": "Infográficos do Observatório",
+    "section": "Disponibilizar utilizando o GitHub",
+    "text": "Disponibilizar utilizando o GitHub\n\n\nPrecisa ter o Git e GitHub configurado com o seu RStudio (esse vídeo é útil: https://youtu.be/fiZStofJqMQ?t=2415 )\n\n\nO projeto precisa estar vinculado a um repositório no GitHub:\n\n\n\n# é necessário rodar apenas uma vez\nusethis::use_git()\nusethis::use_github()\n\n\n\nAtivar o GitHub Pages\n\n\n\nusethis::use_github_pages(\n  branch = usethis::git_default_branch(), # branch principal\n  path = \"/\" # ou /docs \n)\n\n\nO endereço do site será https://seu-username.github.io/nome-repositorio/caminho-do-arquivo.html"
+  }
+]
