@@ -537,5 +537,19 @@
     "title": "Infográficos do Observatório",
     "section": "Disponibilizar utilizando o GitHub",
     "text": "Disponibilizar utilizando o GitHub\n\n\nPrecisa ter o Git e GitHub configurado com o seu RStudio (esse vídeo é útil: https://youtu.be/fiZStofJqMQ?t=2415 )\n\n\nO projeto precisa estar vinculado a um repositório no GitHub:\n\n\n\n# é necessário rodar apenas uma vez\nusethis::use_git()\nusethis::use_github()\n\n\n\nAtivar o GitHub Pages\n\n\n\nusethis::use_github_pages(\n  branch = usethis::git_default_branch(), # branch principal\n  path = \"/\" # ou /docs \n)\n\n\nO endereço do site será https://seu-username.github.io/nome-repositorio/caminho-do-arquivo.html"
+  },
+  {
+    "objectID": "slides/apresentacao.html#links-já-publicados-no-observatório",
+    "href": "slides/apresentacao.html#links-já-publicados-no-observatório",
+    "title": "Infográficos do Observatório",
+    "section": "Links já publicados no Observatório",
+    "text": "Links já publicados no Observatório\nCom o Github pages\n\nhttps://cginf.github.io/Etnia_genero/\nhttps://cginf.github.io/Servidores_por_Genero/\nhttps://cginf.github.io/Taxa_de_reposicao-1/\nhttps://cginf.github.io/Servidores_Ativos/"
+  },
+  {
+    "objectID": "slides/apresentacao.html#com-netliy",
+    "href": "slides/apresentacao.html#com-netliy",
+    "title": "Infográficos do Observatório",
+    "section": "Com Netliy",
+    "text": "Com Netliy\n\nhttps://telainiciofuncao.netlify.app\nhttps://grafico-pcd.netlify.app\nhttps://cargos-generos.netlify.app\nhttps://percentual-cargos.netlify.app\nhttps://grafico-etnia.netlify.app"
   }
 ]

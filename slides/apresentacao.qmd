@@ -536,7 +536,7 @@ usethis::use_github_pages(
 
 -   O endereço do site será `https://seu-username.github.io/nome-repositorio/caminho-do-arquivo.html`
 
-# Links já publicados no Observatório
+## Links já publicados no Observatório
 
 Com o Github pages
 
@@ -545,7 +545,7 @@ Com o Github pages
 -   <https://cginf.github.io/Taxa_de_reposicao-1/>
 -   <https://cginf.github.io/Servidores_Ativos/>
 
-Com Netliy
+## Com Netliy
 
 -   <https://telainiciofuncao.netlify.app>
 -   <https://grafico-pcd.netlify.app>
